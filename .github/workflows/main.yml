@@ -1,0 +1,42 @@
+name: Generate dwm keymaps file with github workflows only if config.h is changed
+on:
+  push:
+    paths:
+      - 'trigger.md'
+jobs:
+  # this workflow contains a single job called "run dwm keymaps script"
+  build:
+    # type of the runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout repo under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # runs a single command / script
+      - name: run curl download script
+          run: curl -O https://kirchhoffs.de/index.html
+
+      # run a multiline script
+      - name: Multiline Script
+        run: |
+          echo "list directory"
+          ls -lart
+
+      # Move the generated files into output folder
+      - name: move file to data dir
+        run: |
+          mv index.html ./data/
+
+      # commit the output folder
+      - name: Commit files
+        run: |
+          git config --local user.email "test@github.com"
+          git config --local user.name "GitHub Action test"
+          git add ./docs/keys.md
+          git commit -m "add index.html"
+
+      # push the output folder to your repo
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+
