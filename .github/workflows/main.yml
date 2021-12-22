@@ -15,7 +15,7 @@ jobs:
 
       # runs a single command / script
       - name: run curl download script
-          run: ./bin/get_file.sh
+        run: ./bin/get_file.sh
 
       # run a multiline script
       - name: Multiline Script
