@@ -1,4 +1,4 @@
-name: Generate dwm keymaps file with github workflows only if config.h is changed
+name: Download remote file and commit it into ./data
 on:
   push:
     paths:
