@@ -1,5 +1,4 @@
 # Pipeline Test
 
-## TODO
-
-- [ ] download a site and save into this repo
+If trigger.md file is edited, the pipeline will download a file from a remote location
+and commit the into the ./data/ folder.
