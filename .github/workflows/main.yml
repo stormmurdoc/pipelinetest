@@ -26,15 +26,15 @@ jobs:
       # Move the generated files into output folder
       - name: move file to data dir
         run: |
-          mv index.html ./data/
+          mv index.html ./data/index.html.$(date "+%s")
 
       # commit the output folder
       - name: Commit files
         run: |
           git config --local user.email "test@github.com"
           git config --local user.name "GitHub Action test"
-          git add ./data/index.html
-          git commit -m "add index.html"
+          git add ./data/index.html.$(date "+%s")
+          git commit -m "add index.html.$(date "+%s")"
 
       # push the output folder to your repo
       - name: Push changes
