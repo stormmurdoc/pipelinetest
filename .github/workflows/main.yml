@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "test@github.com"
           git config --local user.name "GitHub Action test"
-          git add ./docs/keys.md
+          git add ./data/index.html
           git commit -m "add index.html"
 
       # push the output folder to your repo
